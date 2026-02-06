@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Cinematics - Professional Photography & Videography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .font-body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="500" cy="500" r="400" fill="none" stroke="%23fbbf24" stroke-width="1" opacity="0.1"/><circle cx="200" cy="300" r="150" fill="none" stroke="%23fbbf24" stroke-width="1" opacity="0.05"/><circle cx="800" cy="700" r="200" fill="none" stroke="%23fbbf24" stroke-width="1" opacity="0.05"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(251, 191, 36, 0.15);
+        }
+        
+        .portfolio-item {
+            background: linear-gradient(45deg, #1f1f1f, #2a2a2a);
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .portfolio-item:hover::before {
+            left: 100%;
+        }
+        
+        .portfolio-item:hover {
+            border-color: #fbbf24;
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fbbf24;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body class="bg-black text-white font-body">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-display font-bold gradient-text">
+                    Imperial Cinematics
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link hover:text-yellow-400">Home</a>
+                    <a href="#about" class="nav-link hover:text-yellow-400">About</a>
+                    <a href="#services" class="nav-link hover:text-yellow-400">Services</a>
+                    <a href="#portfolio" class="nav-link hover:text-yellow-400">Portfolio</a>
+                    <a href="#contact" class="nav-link hover:text-yellow-400">Contact</a>
+                </div>
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center relative">
+        <div class="container mx-auto px-6 z-10">
+            <h1 class="text-6xl md:text-8xl font-display font-black mb-6 animate-fade-in">
+                <span class="gradient-text">Imperial</span><br>
+                <span class="text-white">Cinematics</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto animate-fade-in stagger-1">
+                Capturing life's most precious moments with cinematic excellence and artistic vision
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center animate-fade-in stagger-2">
+                <button class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-8 py-4 rounded-full font-semibold hover:from-yellow-300 hover:to-yellow-500 transition-all duration-300 transform hover:scale-105">
+                    View Portfolio
+                </button>
+                <button class="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-full font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-300">
+                    Get Quote
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <h2 class="text-5xl font-display font-bold mb-6 gradient-text">About Imperial Cinematics</h2>
+                    <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                        With over a decade of experience in capturing life's most beautiful moments, Imperial Cinematics stands at the forefront of modern photography and videography. We blend traditional artistry with cutting-edge technology to create visual stories that last forever.
+                    </p>
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        Our passion lies in transforming ordinary moments into extraordinary memories, ensuring every frame tells a story worth remembering.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">500+</div>
+                            <div class="text-gray-400">Happy Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">10+</div>
+                            <div class="text-gray-400">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-fade-in stagger-1">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl overflow-hidden">
+                            <div class="w-full h-full flex items-center justify-center">
+                                <i class="fas fa-camera text-6xl text-yellow-400 opacity-50"></i>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-video text-3xl text-black"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-display font-bold mb-6 gradient-text animate-fade-in">Our Services</h2>
+                <p class="text-gray-300 text-xl max-w-3xl mx-auto animate-fade-in stagger-1">
+                    From intimate portraits to grand celebrations, we offer comprehensive photography and videography services
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 animate-fade-in">
+                    <div class="text-5xl gradient-text mb-6">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4 text-white">Photography</h3>
+                    <p class="text-gray-400 mb-6">Professional photography services including portraits, events, commercial, and artistic shoots.</p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Portrait Sessions</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Event Photography</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Commercial Shoots</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Artistic Photography</li>
+                    </ul>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 animate-fade-in stagger-1">
+                    <div class="text-5xl gradient-text mb-6">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4 text-white">Videography</h3>
+                    <p class="text-gray-400 mb-6">Cinematic video production that brings your stories to life with professional quality.</p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Wedding Films</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Corporate Videos</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Music Videos</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Documentary</li>
+                    </ul>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 animate-fade-in stagger-2">
+                    <div class="text-5xl gradient-text mb-6">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4 text-white">Post-Production</h3>
+                    <p class="text-gray-400 mb-6">Professional editing and color grading to enhance your visual content to perfection.</p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Photo Editing</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Video Editing</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Color Grading</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i> Motion Graphics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-display font-bold mb-6 gradient-text animate-fade-in">Portfolio</h2>
+                <p class="text-gray-300 text-xl max-w-3xl mx-auto animate-fade-in stagger-1">
+                    A showcase of our finest work across various photography and videography projects
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="portfolio-item rounded-2xl p-6 h-64 flex items-center justify-center animate-fade-in">
+                    <div class="text-center">
+                        <i class="fas fa-image text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Wedding Photography</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item rounded-2xl p-6 h-64 flex items-center justify-center animate-fade-in stagger-1">
+                    <div class="text-center">
+                        <i class="fas fa-film text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Corporate Video</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item rounded-2xl p-6 h-64 flex items-center justify-center animate-fade-in stagger-2">
+                    <div class="text-center">
+                        <i class="fas fa-portrait text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Portrait Session</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item rounded-2xl p-6 h-64 flex items-center justify-center animate-fade-in stagger-3">
+                    <div class="text-center">
+                        <i class="fas fa-music text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Music Video</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item rounded-2xl p-6 h-64 flex items-center justify-center animate-fade-in stagger-4">
+                    <div class="text-center">
+                        <i class="fas fa-building text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Commercial Shoot</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item rounded-2xl p-6 h-64 flex items-center justify-center animate-fade-in stagger-1">
+                    <div class="text-center">
+                        <i class="fas fa-heart text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-white">Engagement</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-display font-bold mb-6 gradient-text animate-fade-in">Get In Touch</h2>
+                <p class="text-gray-300 text-xl max-w-3xl mx-auto animate-fade-in stagger-1">
+                    Ready to capture your special moments? Let's discuss your vision and create something extraordinary together
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="animate-fade-in">
+                    <div class="space-y-8">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-phone text-black"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white">Phone</h3>
+                                <p class="text-gray-400">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope text-black"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white">Email</h3>
+                                <p class="text-gray-400">info@imperialcinematics.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-black"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white">Location</h3>
+                                <p class="text-gray-400">Los Angeles, California</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in stagger-1">
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="First Name" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-yellow-400 focus:outline-none">
+                            <input type="text" placeholder="Last Name" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-yellow-400 focus:outline-none">
+                        </div>
+                        <input type="email" placeholder="Email Address" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-yellow-400 focus:outline-none">
+                        <input type="tel" placeholder="Phone Number" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-yellow-400 focus:outline-none">
+                        <select class="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-yellow-400 focus:outline-none">
+                            <option>Select Service</option>
+                            <option>Photography</option>
+                            <option>Videography</option>
+                            <option>Both Photography & Videography</option>
+                            <option>Post-Production Only</option>
+                        </select>
+                        <textarea placeholder="Tell us about your project..." rows="4" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-yellow-400 focus:outline-none resize-none"></textarea>
+                        <button type="submit" class="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black py-4 rounded-lg font-semibold hover:from-yellow-300 hover:to-yellow-500 transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-display font-bold gradient-text mb-4 md:mb-0">
+                    Imperial Cinematics
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <i class="fab fa-vimeo text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-gray-400">
+                <p>&copy; 2024 Imperial Cinematics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should animate
+        document.querySelectorAll('.card-hover, .portfolio-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.md\\:hidden button').addEventListener('click', function() {
+            // Toggle mobile menu functionality would go here
+            console.log('Mobile menu toggle');
+        });
+    </script>
+</body>
+</html>
